@@ -1,0 +1,27 @@
+-- Question 2: Lấy ra tất cả các phòng ban; 
+SELECT * FROM Department; 
+-- Question 3: Lấy ra id của phòng ban "Sale"; 
+SELECT DepartmentID FROM Department WHERE DepartmentName = 'Sale'; 
+-- Question 4: Lấy ra thông tin account có full name dài nhất; S
+ELECT * FROM Account ORDER BY LENGTH(FullName) DESC LIMIT 1; 
+-- Question 5: Account có full name dài nhất và thuộc phòng ban ID = 3; 
+SELECT * FROM Account WHERE DepartmentID = 3 ORDER BY LENGTH(FullName) DESC LIMIT 1; 
+-- Question 6: Tên group đã tham gia trước ngày 20/12/2019; 
+SELECT GroupName FROM `Group` WHERE CreateDate < '2019-12-20';
+-- Question 7: Lấy ra QuestionID có >= 4 câu trả lời; 
+SELECT QuestionID FROM Answer GROUP BY QuestionID HAVING COUNT(*) >= 4; 
+-- Question 8: Các mã đề thi có thời gian thi >= 60 phút và được tạo trước 20/12/2019; 
+SELECT Code FROM Exam WHERE Duration >= 60 AND CreateDate < '2019-12-20'; 
+-- Question 9: Lấy 5 group được tạo gần đây nhất; 
+SELECT * FROM `Group` ORDER BY CreateDate DESC LIMIT 5; 
+-- Question 10: Đếm số nhân viên thuộc department có id = 2; 
+SELECT COUNT(*) AS TotalEmployee FROM Account WHERE DepartmentID = 2; 
+-- Question 11: Nhân viên có tên bắt đầu bằng "D" và kết thúc bằng "o"; 
+SELECT * FROM Account WHERE FullName LIKE 'D%o'; 
+-- Question 12: Xóa tất cả exam tạo trước 20/12/2019; 
+DELETE FROM Exam WHERE CreateDate < '2019-12-20'; 
+-- Question 13: Xóa tất cả question có nội dung bắt đầu bằng "câu hỏi"; 
+DELETE FROM Question WHERE Content LIKE 'câu hỏi%'; 
+-- Question 14: Update account ID = 5 thành tên và email mới; 
+UPDATE Account SET FullName = 'Nguyễn Bá Lộc', Email = 'loc.nguyenba@vti.com.vn' WHERE AccountID = 5; 
+-- Question 15: Account ID = 5 join group ID = 4; 
