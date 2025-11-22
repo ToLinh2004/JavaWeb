@@ -2,10 +2,10 @@
 SELECT * FROM Department; 
 -- Question 3: Lấy ra id của phòng ban "Sale"; 
 SELECT DepartmentID FROM Department WHERE DepartmentName = 'Sale'; 
--- Question 4: Lấy ra thông tin account có full name dài nhất; S
-ELECT * FROM Account ORDER BY LENGTH(FullName) DESC LIMIT 1; 
+-- Question 4: Lấy ra thông tin account có full name dài nhất; 
+SELECT * FROM Account where length(FullName) = (select Max(length(FullName) )from Account) ; 
 -- Question 5: Account có full name dài nhất và thuộc phòng ban ID = 3; 
-SELECT * FROM Account WHERE DepartmentID = 3 ORDER BY LENGTH(FullName) DESC LIMIT 1; 
+SELECT * FROM Account WHERE DepartmentID = 3 ORDER BY LENGTH(FullName) DESC ; 
 -- Question 6: Tên group đã tham gia trước ngày 20/12/2019; 
 SELECT GroupName FROM `Group` WHERE CreateDate < '2019-12-20';
 -- Question 7: Lấy ra QuestionID có >= 4 câu trả lời; 
